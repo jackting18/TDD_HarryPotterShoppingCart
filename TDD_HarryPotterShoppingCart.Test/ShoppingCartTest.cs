@@ -36,10 +36,10 @@ namespace TDD_HarryPotterShoppingCart.Test
         }
 
         [Fact]
-        public void Buy_1_HarryPort1_And_1_HarryPort2_TotalPrice_Should_Be_200()
+        public void Buy_1_HarryPort1_And_1_HarryPort2_TotalPrice_Should_Be_190()
         {
             //// Arrange
-            var expected = 200;
+            var expected = 190;
 
             var target = new ShoppingCart();
 
@@ -62,10 +62,10 @@ namespace TDD_HarryPotterShoppingCart.Test
         }
 
         [Fact]
-        public void Buy_2_HarryPort1_And_1_HarryPort2_TotalPrice_Should_Be_200()
+        public void Buy_2_HarryPort1_And_1_HarryPort2_TotalPrice_Should_Be_285()
         {
             //// Arrange
-            var expected = 300;
+            var expected = 285;
 
             var target = new ShoppingCart();
 
