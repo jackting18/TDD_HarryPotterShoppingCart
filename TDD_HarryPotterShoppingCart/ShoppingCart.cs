@@ -8,5 +8,9 @@ namespace TDD_HarryPotterShoppingCart
 {
     public class ShoppingCart
     {
+        public decimal Calculate()
+        {
+            return 0m;
+        }
     }
 }
