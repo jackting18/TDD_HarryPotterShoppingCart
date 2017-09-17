@@ -144,5 +144,33 @@ namespace TDD_HarryPotterShoppingCart.Test
             //// Assert
             Assert.Equal(expected, actual);
         }
+
+        [Fact]
+        public void Buy_HarryPort_Different3_Same1_TotalPrice_Should_Be_370()
+        {
+            //// Arrange
+            var expected = 370;
+
+            var target = new ShoppingCart();
+
+            var shoppingCart = new ShoppingCartEntity
+            {
+                SalePageList = new List<SalePageEntity>()
+                {
+                    new SalePageEntity(){Id = 1, Price = 100, Qty = 1},
+                    new SalePageEntity(){Id = 2, Price = 100, Qty = 1},
+                    new SalePageEntity(){Id = 3, Price = 100, Qty = 1},
+                    new SalePageEntity(){Id = 3, Price = 100, Qty = 1},
+                }
+            };
+
+            decimal actual = 0m;
+
+            //// Act
+            actual = target.Calculate(shoppingCart);
+
+            //// Assert
+            Assert.Equal(expected, actual);
+        }
     }
 }
