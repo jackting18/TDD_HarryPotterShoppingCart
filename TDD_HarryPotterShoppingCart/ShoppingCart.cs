@@ -21,15 +21,44 @@ namespace TDD_HarryPotterShoppingCart
         {
             //// 1.一到五集的哈利波特，每一本都是賣100元
             //// 2.如果你從這個系列買了兩本不同的書，則會有5%的折扣
+            //// 3.如果你買了三本不同的書，則會有10%的折扣
+            //// 4.如果是四本不同的書，則會有20 % 的折扣
+            //// 5.如果你一次買了整套一到五集，恭喜你將享有25 % 的折扣
+
             var count = shoppingCart.SalePageList.Select(i => i.Id).Distinct().Count();
 
             var totalPrice = shoppingCart.SalePageList.Sum(i => i.Qty * i.Price);
-            if (count >= 2)
-            {
-                totalPrice = totalPrice * 0.95m;
-            }
+
+            var discount = GetDiscount(count);
+
+            totalPrice = totalPrice * discount;
 
             return totalPrice;
+        }
+
+        private decimal GetDiscount(int count)
+        {
+            var discount = 1m;
+
+            switch (count)
+            {
+                case 2:
+                    discount = 0.95m;
+                    break;
+                case 3:
+                    discount = 0.9m;
+                    break;
+                case 4:
+                    discount = 0.8m;
+                    break;
+                case 5:
+                    discount = 0.75m;
+                    break;
+                default:
+                    break;
+            }
+
+            return discount;
         }
     }
 }
